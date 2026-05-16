@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chesendo Network</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:white;
+}
+
+.logo span{
+    color:#c8ff00;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:35px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#c8ff00;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:170px 8% 100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.88)),
+    url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+.hero-left{
+    width:55%;
+}
+
+.hero-left h1{
+    font-size:75px;
+    line-height:1.05;
+    margin-bottom:25px;
+    font-weight:800;
+}
+
+.hero-left h1 span{
+    color:#c8ff00;
+}
+
+.hero-left p{
+    color:#bdbdbd;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:40px;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.btn-main{
+    background:#c8ff00;
+    color:black;
+    padding:18px 38px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.btn-main:hover{
+    transform:translateY(-5px);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+    padding:18px 38px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-secondary:hover{
+    background:white;
+    color:black;
+}
+
+.hero-right{
+    width:40%;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-card{
+    width:100%;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(0,0,0,0.4);
+}
+
+.hero-card h3{
+    color:#c8ff00;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.hero-card p{
+    color:#bdbdbd;
+    line-height:1.9;
+}
+
+/* SECTION */
+
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+    font-size:55px;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.section-title span{
+    color:#c8ff00;
+}
+
+.section-text{
+    color:#bdbdbd;
+    line-height:2;
+    font-size:17px;
+    max-width:900px;
+}
+
+/* SERVICES */
+
+.services-grid{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:#0d0d0d;
+    padding:40px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:0.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border:1px solid #c8ff00;
+}
+
+.service-card h3{
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.service-card p{
+    color:#bdbdbd;
+    line-height:1.8;
+}
+
+/* JECT */
+
+.ject-box{
+    margin-top:50px;
+    padding:60px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#101010,#1a1a1a);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.project-box h2{
+    font-size:45px;
+    margin-bottom:25px;
+}
+
+.project-box h2 span{
+    color:#c8ff00;
+}
+
+.project-box p{
+    color:#bdbdbd;
+    line-height:2;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.contact-card{
+    background:#0d0d0d;
+    padding:35px;
+    border-radius:24px;
+}
+
+.contact-card h3{
+    color:#c8ff00;
+    margin-bottom:20px;
+}
+
+.contact-card p{
+    color:#bdbdbd;
+    line-height:2;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:#999;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+
+/* MOBILE */
+
+@media(max-width:980px){
+
+.hero{
+    flex-direction:column;
+    gap:60px;
+}
+
+.hero-left,
+.hero-right{
+    width:100%;
+}
+
+.hero-left h1{
+    font-size:50px;
+}
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+/* AI MENTOR BOX */
+
+.mentor-box{
+    margin-top:50px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:25px;
+    text-align:left;
+}
+
+.mentor-box h3{
+    font-size:30px;
+    margin-bottom:25px;
+    color:#c8ff00;
+}
+
+.mentor-box p{
+    color:#bdbdbd;
+    line-height:2;
+    font-size:17px;
+}
+
+/* VIDEO SECTION */
+
+.video-section{
+    padding:120px 8%;
+    text-align:center;
+    background:#050505;
+}
+
+.video-section h2{
+    font-size:50px;
+    margin-bottom:40px;
+    color:#c8ff00;
+}
+
+.video-container{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+.video-container video{
+    width:100%;
+    display:block;
+    border-radius:25px;
+}
+
+.video-section p{
+    margin-top:30px;
+    color:#bdbdbd;
+    line-height:1.9;
+    font-size:17px;
+}
+/* FLOATING WHATSAPP BUTTON */
+
+.whatsapp-float{
+    position:fixed;
+    width:65px;
+    height:65px;
+    bottom:25px;
+    right:25px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+    z-index:9999;
+    transition:0.3s ease;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.1);
+}
+
+.whatsapp-float img{
+    width:35px;
+    height:35px;
+}
+/* AI MENTOR SECTION */
+
+.ai-mentor-section{
+    padding:120px 8%;
+    background:
+    linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.ai-mentor-wrapper{
+    max-width:1200px;
+    margin:auto;
+}
+
+.ai-mentor-section h2{
+    font-size:60px;
+    margin-bottom:30px;
+    color:#c8ff00;
+    text-align:center;
+}
+
+.mentor-intro{
+    text-align:center;
+    color:#d0d0d0;
+    line-height:2;
+    font-size:18px;
+    max-width:900px;
+    margin:0 auto 60px;
+}
+
+.mentor-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    margin-bottom:50px;
+}
+
+.mentor-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+}
+
+.mentor-card h3{
+    color:#c8ff00;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.mentor-card ul{
+    padding-left:20px;
+}
+
+.mentor-card li{
+    color:#d0d0d0;
+    margin-bottom:15px;
+    line-height:1.8;
+}
+
+.mentor-text{
+    color:#d0d0d0;
+    line-height:2;
+    font-size:18px;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+.ai-mentor-section .btn-main{
+    display:inline-block;
+    margin:auto;
+}
+
+.ai-mentor-wrapper{
+    text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.ai-mentor-section h2{
+    font-size:42px;
+}
+
+.mentor-intro,
+.mentor-text{
+    font-size:16px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+CHESENDO <span>NETWORK</span>
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#project">Project</a></li>
+<li><a href="#ai-mentor">AI Mentor</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+Global Advertising <br>
+& <span>Blockchain Network</span>
+</h1>
+
+<p>
+Chesendo Network is a worldwide digital advertising and blockchain awareness platform helping businesses, products, services, and opportunities gain visibility across the globe through modern marketing and cryptocurrency education.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://member.knewproject.net/register/?Username=KP6609504" class="btn-main" target="_blank">
+JOIN NOW
+</a>
+
+<a href="#services" class="btn-secondary">
+OUR SERVICES
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="hero-card">
+
+<h3>Knew Project AI Mentor</h3>
+
+<p>
+Join a growing digital movement using blockchain technology and USDT transactions for fast worldwide payments, business networking, and financial opportunities.
+<br><br>
+Become part of a global system designed for modern digital transactions and business awareness.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="project-box">
+
+
+
+<br><br><br>
+
+<div class="mentor-box">
+
+
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+About <span>Chesendo Network</span>
+</h2>
+
+<p class="section-text">
+
+Founded by Gavin Edwards in Westmoreland Jamaica, Chesendo Network focuses on digital advertising, marketing consultation, blockchain awareness, cryptocurrency education, and worldwide business promotion.
+<br><br>
+We help individuals and businesses understand modern technology, blockchain systems, cryptography knowledge, and digital financial opportunities while promoting products and services globally.
+<br><br>
+Understanding the latest technology, blockchain systems, and cryptocurrency knowledge is key in the digital future.
+
+</p>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2 class="section-title">
+Our <span>Services</span>
+</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Advertising</h3>
+<p>
+Worldwide business advertising and product awareness campaigns.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Marketing Consultant</h3>
+<p>
+Helping brands and businesses gain visibility and growth online.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Blockchain Awareness</h3>
+<p>
+Teaching blockchain technology, cryptocurrency, and digital finance systems.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Business Promotion</h3>
+<p>
+Promoting services, products, opportunities, and global projects.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECT -->
+
+<section id="project">
+
+<h2 class="section-title">
+Knew <span>Project</span>
+</h2>
+
+<div class="project-box">
+
+<h2>
+JOIN THE <span>KNEW PROJECT</span> TODAY
+</h2>
+
+<p>
+
+Become part of a growing worldwide digital network using blockchain technology and USDT transactions for fast global payments and opportunities.
+<br><br>
+Start your journey today by registering through our official partner link below.
+<br><br>
+Email or WhatsApp us to learn more about why this project can help solve financial transaction challenges worldwide using blockchain technology.
+
+</p>
+
+<a href="https://member.knewproject.net/register/?Username=KP6609504" target="_blank" class="btn-main">
+JOIN NOW
+</a>
+
+</div>
+
+</section>
+
+<section class="video-section" id="videos">
+
+<h2>Featured Video</h2>
+
+<div class="video-container">
+
+<video controls autoplay muted loop>
+    <source src="c:\Users\USER\Desktop\Knew Project\VID-20260515-WA0049.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+</div>
+
+<p>
+Learn more about blockchain technology, digital business opportunities, and Knew Project through our latest featured presentation.
+</p>
+
+</section>
+
+<section class="ai-mentor-section" id="ai-mentor">
+
+<div class="ai-mentor-wrapper">
+
+<h2>Knew Project AI Mentor</h2>
+
+<p class="mentor-intro">
+Community,
+<br><br>
+The official AI Mentor of Knew Project is now live and accessible to everyone as a marketing and educational tool.
+</p>
+
+<div class="mentor-grid">
+
+<div class="mentor-card">
+<h3>Social Media Marketing</h3>
+
+<ul>
+<li>Facebook posts and engagement</li>
+<li>Instagram reels and stories</li>
+<li>TikTok content</li>
+<li>YouTube Shorts</li>
+</ul>
+
+</div>
+
+<div class="mentor-card">
+<h3>Interactive Promotion</h3>
+
+<ul>
+<li>Live demonstrations</li>
+<li>Answering prospects’ questions</li>
+<li>Educational videos</li>
+<li>Promotional content</li>
+</ul>
+
+</div>
+
+</div>
+
+<p class="mentor-text">
+
+One of the best ways to market today is by creating curiosity and interaction.
+
+<br><br>
+
+Record yourself interacting with the AI Mentor, asking questions, showing how it works, and sharing the experience with your audience.
+
+<br><br>
+
+This helps people discover the vision and technology behind Knew Project in a unique and interactive way.
+
+<br><br>
+
+The more content we create as a community, the faster the visibility will grow.
+
+<br><br>
+
+<strong>Now let’s get creative and put this tool to work.</strong>
+
+</p>
+
+<a href="https://kp-ai-mentor.vercel.app/" target="_blank" class="btn-main">
+OPEN AI MENTOR
+</a>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2 class="section-title">
+Contact <span>Us</span>
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>Founder & CEO</h3>
+<p>
+Gavin Edwards
+</p>
+</div>
+
+<div class="contact-card">
+<h3>Location</h3>
+<p>
+Westmoreland, Jamaica
+</p>
+</div>
+
+<div class="contact-card">
+<h3>Telephone & WhatsApp</h3>
+<p>
++1 876 237 6194
+</p>
+</div>
+
+<div class="contact-card">
+<h3>Telegram</h3>
+<p>
+@Drgnba1mba1
+</p>
+</div>
+
+<div class="contact-card">
+<h3>Email</h3>
+<p>
+chesendonetwork@gmail.com
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 CHESENDO NETWORK — ALL RIGHTS RESERVED
+
+</footer>
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a href="https://wa.me/18762376194?text=Hello%20I%20want%20to%20know%20more%20about%20Chesendo%20Network" 
+class="whatsapp-float" 
+target="_blank">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+alt="WhatsApp">
+
+</a>
+
+</body>
+</html>
